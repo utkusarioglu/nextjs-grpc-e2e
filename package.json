@@ -1,0 +1,8 @@
+{
+  "name": "e2e.nextjs-grpc.projects.utkusarioglu.com",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "cypress": "^10.3.1"
+  }
+}
