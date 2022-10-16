@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 function describeName(Cypress, viewportSize, groupDefinition) {
   const groupString = groupDefinition ? ` - ${groupDefinition}` : "";
   return `${Cypress.browser.name} @ ${viewportSize.join("x")}${groupString}`;

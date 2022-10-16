@@ -1,7 +1,8 @@
 #!/bin/bash
 
-source .env
-WORKDIR=/utkusarioglu/projects/nextjs-grpc/e2e
+WORKDIR=/utkusarioglu-com/projects/nextjs-grpc/e2e
+source "$WORKDIR/.env"
+repo_dir="$GITHUB_WORKSPACE/e2e"
 
 if [ ! -f $(/var/run/docker.sock) ];
 then
@@ -13,12 +14,14 @@ fi
 docker run \
   --rm \
   -t \
-  -v $(pwd)/.cypress:$WORKDIR/cypress \
-  -v $(pwd)/scripts:$WORKDIR/scripts \
-  -v $(pwd)/cypress.config.js:$WORKDIR/cypress.config.js \
+  -v "$repo_dir/.env:$WORKDIR/.env" \
+  -v "$repo_dir/.cypress:$WORKDIR/cypress" \
+  -v "$repo_dir/scripts:$WORKDIR/scripts" \
+  -v "$repo_dir/cypress.config.js:$WORKDIR/cypress.config.js" \
+  -v "$repo_dir/package.json:$WORKDIR/package.json" \
   -w $WORKDIR \
-  --env-file $(pwd)/.env \
+  --network host \
   --name nextjs-grpc-e2e \
-  --add-host target-http-server:host-gateway \
-  --entrypoint scripts/run-cypress-tests.js \
-  cypress/included:10.0.0 
+  --add-host "$BASE_URL:127.0.0.1" \
+  --entrypoint scripts/run-cypress-tests.sh \
+  cypress/included:10.0.0 \

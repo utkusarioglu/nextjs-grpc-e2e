@@ -1,9 +1,12 @@
+require("dotenv").config();
 const { defineConfig } = require("cypress");
+
+const baseUrl = `https://${process.env.BASE_URL}`;
 
 module.exports = defineConfig({
   e2e: {
     supportFile: false,
-    baseUrl: "https://target-http-server",
+    baseUrl,
     setupNodeEvents(on, config) {
       const windowSize = config.env.windowSize;
       on("before:browser:launch", (browser = {}, launchOptions) => {
