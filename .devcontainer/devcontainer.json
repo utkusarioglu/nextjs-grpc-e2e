@@ -1,0 +1,19 @@
+{
+  "name": "e2e.nextjs-grpc.projects.utkusarioglu.com",
+  "dockerComposeFile": [
+    "../.docker/docker-compose.dev.yml",
+    "docker-compose.yml"
+  ],
+  "service": "nextjs-grpc-e2e",
+  "workspaceFolder": "/utkusarioglu-com/projects/nextjs-grpc/e2e",
+  "postCreateCommand": "scripts/post-create-command.sh",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "workbench.colorCustomizations": {
+          "activityBar.background": "#223453"
+        }
+      }
+    }
+  }
+}

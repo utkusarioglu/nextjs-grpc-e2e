@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  nextjs-grpc-e2e:
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+      - type: volume
+        source: vscode-extensions
+        target: /root/.vscode-server/extensions
+      - type: volume
+        source: vscode-extensions-insiders
+        target: /root/.vscode-server-insiders/extensions
+      - type: bind
+        source: ~/.config/gh
+        target: /home/hardhat/.config/gh
+        read_only: true
+
+volumes:
+  vscode-extensions:
+    name: nextjs-grpc-e2e-vscode-extensions
+  vscode-extensions-insiders:
+    name: nextjs-grpc-e2e-vscode-extensions-insiders
