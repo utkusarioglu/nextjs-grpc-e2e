@@ -1,0 +1,15 @@
+node_modules
+.env
+.env.ci
+!.env.local
+.cypress/artifacts
+*.log
+
+.cypress/cache
+
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

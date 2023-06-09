@@ -1,6 +1,8 @@
 version: "3.9"
 services:
   nextjs-grpc-e2e:
+    environment:
+      GH_TOKEN: ${GH_TOKEN}
     command: /bin/sh -c "while sleep 1000; do :; done"
     volumes:
       - type: volume
