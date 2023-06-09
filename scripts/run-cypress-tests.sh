@@ -6,6 +6,6 @@ YARN_LOGS_PATH=$LOGS_PATH/yarn.log
 mkdir -p $LOGS_PATH
 touch $YARN_LOGS_PATH
 
-yarn > $YARN_LOGS_PATH
+yarn --frozen-lockfile
 
 scripts/run-cypress-tests.js

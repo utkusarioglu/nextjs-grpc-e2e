@@ -8,6 +8,8 @@ module.exports = defineConfig({
     supportFile: false,
     baseUrl,
     setupNodeEvents(on, config) {
+      console.log("Using cypress config:\n", JSON.stringify(config));
+
       const windowSize = config.env.windowSize;
       on("before:browser:launch", (browser = {}, launchOptions) => {
         if (browser.isHeadless) {

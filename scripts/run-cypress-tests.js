@@ -3,13 +3,15 @@ const cypress = require("cypress");
 const {
   getE2eBrowsers,
   getE2eViewportSizes,
+  getE2eVideoPaddings,
   calculateE2eWindowSize,
 } = require("../cypress/utils/test.utils.js");
 const config = require("../cypress.config.js");
 
 const browsers = getE2eBrowsers();
 const viewportSizes = getE2eViewportSizes();
-const windowSize = calculateE2eWindowSize(viewportSizes);
+const videoPadding = getE2eVideoPaddings();
+const windowSize = calculateE2eWindowSize(viewportSizes, videoPadding);
 
 browsers
   .reduce((chain, browser) => {

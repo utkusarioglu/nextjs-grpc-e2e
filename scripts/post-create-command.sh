@@ -1,3 +1,5 @@
 #!/bin/bash
 
-echo "No registered post-create comands"
+yarn
+
+/home/node/elam/elam.sh repo status

@@ -13,7 +13,10 @@
         "workbench.colorCustomizations": {
           "activityBar.background": "#223453"
         }
-      }
+      },
+      "extensions": [
+        "esbenp.prettier-vscode"
+      ]
     }
   }
 }
