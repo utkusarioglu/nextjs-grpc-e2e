@@ -32,9 +32,12 @@ echo "base url: $BASE_URL"
 echo "gh workspace: $GITHUB_WORKSPACE"
 echo "ci: $CI"
 
+touch $WORKDIR/.env
 echo "BASE_URL=$BASE_URL" >> $WORKDIR/.env
 echo "E2E_VIEWPORT_SIZES=$E2E_VIEWPORT_SIZES" >> $WORKDIR/.env
 echo "E2E_BROWSERS=$E2E_BROWSERS" >> $WORKDIR/.env
+
+ls -al $repo_dir
 
 docker run \
   --rm \
