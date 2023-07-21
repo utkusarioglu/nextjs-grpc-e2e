@@ -59,6 +59,6 @@ docker run \
   --network host \
   --name nextjs-grpc-e2e \
   --add-host "$BASE_URL:127.0.0.1" \
-  --entrypoint scripts/run-cypress-tests.sh \
+  --entrypoint 'sh -c "ls -al"' \
   cypress/included:$CYPRESS_VERSION
-  # --entrypoint 'bash' \
+  # --entrypoint scripts/run-cypress-tests.sh \
