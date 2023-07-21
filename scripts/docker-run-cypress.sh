@@ -26,22 +26,6 @@ then
   exit 1
 fi
 
-echo "Using cypress/included:$CYPRESS_VERSION…"
-echo "repo dir: $repo_dir"
-echo "work dir: $WORKDIR"
-echo "base url: $BASE_URL"
-echo "gh workspace: $GITHUB_WORKSPACE"
-echo "ci: $CI"
-
-touch $repo_dir/.env
-echo "BASE_URL=$BASE_URL" >> $repo_dir/.env
-echo "E2E_VIEWPORT_SIZES=$E2E_VIEWPORT_SIZES" >> $repo_dir/.env
-echo "E2E_BROWSERS=$E2E_BROWSERS" >> $repo_dir/.env
-
-ls -al $repo_dir
-ls -al $repo_dir/scripts
-cat $repo_dir/.env
-
 docker run \
   --rm \
   --user 0:0 \

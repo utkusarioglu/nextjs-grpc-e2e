@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 LOGS_PATH=".cypress/artifacts/logs"
 YARN_LOGS_PATH=$LOGS_PATH/yarn.log
