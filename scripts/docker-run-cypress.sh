@@ -32,6 +32,10 @@ echo "base url: $BASE_URL"
 echo "gh workspace: $GITHUB_WORKSPACE"
 echo "ci: $CI"
 
+echo "BASE_URL=$BASE_URL" >> $WORKDIR/.env
+echo "E2E_VIEWPORT_SIZES=$E2E_VIEWPORT_SIZES" >> $WORKDIR/.env
+echo "E2E_BROWSERS=$E2E_BROWSERS" >> $WORKDIR/.env
+
 docker run \
   --rm \
   --user 0:0 \
@@ -50,5 +54,5 @@ docker run \
   --network host \
   --name nextjs-grpc-e2e \
   --add-host "$BASE_URL:127.0.0.1" \
-  --entrypoint scripts/run-cypress-tests.sh \
+  --entrypoint $WORKDIR/scripts/run-cypress-tests.sh \
   cypress/included:$CYPRESS_VERSION \
