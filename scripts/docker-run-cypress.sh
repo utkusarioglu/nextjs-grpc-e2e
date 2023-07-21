@@ -33,11 +33,12 @@ echo "gh workspace: $GITHUB_WORKSPACE"
 echo "ci: $CI"
 
 touch $WORKDIR/.env
-echo "BASE_URL=$BASE_URL" >> $WORKDIR/.env
-echo "E2E_VIEWPORT_SIZES=$E2E_VIEWPORT_SIZES" >> $WORKDIR/.env
-echo "E2E_BROWSERS=$E2E_BROWSERS" >> $WORKDIR/.env
+echo "BASE_URL=$BASE_URL" >> $repo_dir/.env
+echo "E2E_VIEWPORT_SIZES=$E2E_VIEWPORT_SIZES" >> $repo_dir/.env
+echo "E2E_BROWSERS=$E2E_BROWSERS" >> $repo_dir/.env
 
 ls -al $repo_dir
+ls -al $repo_dir/scripts
 
 docker run \
   --rm \
