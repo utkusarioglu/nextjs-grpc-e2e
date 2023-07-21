@@ -2,7 +2,8 @@
 
 # WORKDIR=/utkusarioglu-com/projects/nextjs-grpc/e2e
 WORKDIR=/cypress-workspace
-CYPRESS_VERSION=12.13.0
+# CYPRESS_VERSION=12.13.0
+CYPRESS_VERSION=12.17.2
 
 if [ -z "$CI" ]; then
   GITHUB_WORKSPACE=$(pwd)/..
