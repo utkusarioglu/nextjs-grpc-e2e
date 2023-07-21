@@ -26,6 +26,11 @@ then
 fi
 
 echo "Using cypress/included:$CYPRESS_VERSION…"
+echo "repo dir: $repo_dir"
+echo "work dir: $WORKDIR"
+echo "base url: $BASE_URL"
+echo "gh workspace: $GITHUB_WORKSPACE"
+echo "ci: $CI"
 
 docker run \
   --rm \
