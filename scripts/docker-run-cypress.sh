@@ -39,6 +39,7 @@ echo "E2E_BROWSERS=$E2E_BROWSERS" >> $repo_dir/.env
 
 ls -al $repo_dir
 ls -al $repo_dir/scripts
+cat $repo_dir/.env
 
 docker run \
   --rm \
@@ -59,5 +60,5 @@ docker run \
   --name nextjs-grpc-e2e \
   --add-host "$BASE_URL:127.0.0.1" \
   --entrypoint 'bash -c "ls -al"' \
-  cypress/included:$CYPRESS_VERSION \
+  cypress/included:$CYPRESS_VERSION
   # --entrypoint $WORKDIR/scripts/run-cypress-tests.sh \
