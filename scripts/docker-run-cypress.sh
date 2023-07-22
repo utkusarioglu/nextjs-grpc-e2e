@@ -19,7 +19,7 @@ fi
 repo_dir="$GITHUB_WORKSPACE/e2e"
 source "$repo_dir/.env"
 
-if [ ! -f $(/var/run/docker.sock) ];
+if [ ! -f $(/var/run/docker.sock) ] && [ "$(id -u)" != "0" ];
 then
   echo "This script requires docker to be available in the environment"
   echo "If you are inside the devcontainer, try running the script from the host."
