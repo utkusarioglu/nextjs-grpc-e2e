@@ -29,7 +29,6 @@ fi
 docker run \
   --rm \
   --user 0:0 \
-  --privileged \
   -t \
   -v "$repo_dir/.env:$WORKDIR/.env" \
   -v "$repo_dir/package.json:$WORKDIR/package.json" \
@@ -47,3 +46,5 @@ docker run \
   --add-host "$BASE_URL:127.0.0.1" \
   --entrypoint scripts/run-cypress-tests.sh \
   cypress/included:$CYPRESS_VERSION
+
+  # --privileged \
