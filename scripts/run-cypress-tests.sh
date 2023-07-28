@@ -8,4 +8,9 @@ touch $YARN_LOGS_PATH
 
 yarn --frozen-lockfile
 
-scripts/run-cypress-tests.js
+echo 'Testing curl:'
+curl --insecure https://nextjs-grpc.utkusarioglu.com
+echo 'End of curl test'
+
+NODE_EXTRA_CA_CERTS=/utkusarioglu-com/projects/nextjs-grpc/e2e/.certs/ca.crt \
+  scripts/run-cypress-tests.js
