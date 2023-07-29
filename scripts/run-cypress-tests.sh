@@ -24,20 +24,27 @@ cat $CA_PATH
 echo '</ Certificate>'
 
 echo '<Curl, homepage>'
-curl http://nextjs-grpc.utkusarioglu.com
+curl http://nextjs-grpc.utkusarioglu.com | head -n1
 echo '</Curl, homepage>'
 
 echo '<Curl, login>'
-curl http://nextjs-grpc.utkusarioglu.com/login
+curl http://nextjs-grpc.utkusarioglu.com/login | head -n1
 echo '</Curl, login>'
 
 echo '<Curl with ca, homepage>'
-curl --cacert $CA_PATH https://nextjs-grpc.utkusarioglu.com
+curl --cacert $CA_PATH https://nextjs-grpc.utkusarioglu.com | head -n1
 echo '</Curl with ca, homepage>'
 
 echo '<Curl with ca, login>'
-curl --cacert $CA_PATH https://nextjs-grpc.utkusarioglu.com/login
+curl --cacert $CA_PATH https://nextjs-grpc.utkusarioglu.com/login | head -n1
 echo '</Curl with ca, login>'
 
-NODE_EXTRA_CA_CERTS=$CA_PATH \
-  scripts/run-cypress-tests.js
+NODE_EXTRA_CA_CERTS=$CA_PATH scripts/run-cypress-tests.js
+
+echo '<artifacts folder>'
+ls -al /utkusarioglu-com/projects/nextjs-grpc/e2e/cypress/artifacts
+echo '</ artifacts folder>'
+
+echo '<chrome screenshots>'
+ls -al /utkusarioglu-com/projects/nextjs-grpc/e2e/cypress/artifacts/chrome/screenshots/ 
+echo '</ chrome screenshots>'
