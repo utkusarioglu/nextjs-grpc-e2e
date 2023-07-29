@@ -8,6 +8,13 @@ mkdir -p $LOGS_PATH
 touch $YARN_LOGS_PATH
 
 yarn --frozen-lockfile
+
+echo 'from prep file' > cypress/artifacts/prep.txt
+pwd
+ls cypress
+ls cypress/artifacts
+cat cypress/artifacts/prep.txt
+
 # echo '<Curl install>'
 # apt update && apt install -y curl
 # echo '</Curl install>'
