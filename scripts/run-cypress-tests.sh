@@ -23,5 +23,13 @@ echo '<Certificate>'
 cat $CA_PATH
 echo '</ Certificate>'
 
+echo '<Curl with ca, homepage>'
+curl --cacert $CA_PATH https://nextjs-grpc.utkusarioglu.com
+echo '</Curl with ca, homepage>'
+
+echo '<Curl with ca, login>'
+curl --cacert $CA_PATH https://nextjs-grpc.utkusarioglu.com/login
+echo '</Curl with ca, login>'
+
 NODE_EXTRA_CA_CERTS=$CA_PATH \
   scripts/run-cypress-tests.js
