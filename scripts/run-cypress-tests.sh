@@ -7,7 +7,8 @@ mkdir -p $LOGS_PATH
 touch $YARN_LOGS_PATH
 
 yarn --frozen-lockfile
-
+echo 'Installing curl'
+apt update && apt install -y curl
 echo 'Testing curl:'
 curl --insecure https://nextjs-grpc.utkusarioglu.com
 echo 'End of curl test'
