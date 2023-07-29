@@ -23,6 +23,14 @@ echo '<Certificate>'
 cat $CA_PATH
 echo '</ Certificate>'
 
+echo '<Curl, homepage>'
+curl http://nextjs-grpc.utkusarioglu.com
+echo '</Curl, homepage>'
+
+echo '<Curl, login>'
+curl http://nextjs-grpc.utkusarioglu.com/login
+echo '</Curl, login>'
+
 echo '<Curl with ca, homepage>'
 curl --cacert $CA_PATH https://nextjs-grpc.utkusarioglu.com
 echo '</Curl with ca, homepage>'
