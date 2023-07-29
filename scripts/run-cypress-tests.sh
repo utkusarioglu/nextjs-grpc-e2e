@@ -2,16 +2,22 @@
 
 LOGS_PATH=".cypress/artifacts/logs"
 YARN_LOGS_PATH=$LOGS_PATH/yarn.log
+CA_PATH=/utkusarioglu-com/projects/nextjs-grpc/e2e/.certs/intermediate/ca.crt
 
 mkdir -p $LOGS_PATH
 touch $YARN_LOGS_PATH
 
 yarn --frozen-lockfile
-echo 'Installing curl'
+echo '<Curl install>'
 apt update && apt install -y curl
-echo 'Testing curl:'
+echo '</Curl install>'
+echo '<Curl test>'
 curl --insecure https://nextjs-grpc.utkusarioglu.com
-echo 'End of curl test'
+echo '</Curl test>'
 
-NODE_EXTRA_CA_CERTS=/utkusarioglu-com/projects/nextjs-grpc/e2e/.certs/ca.crt \
+echo '<Certificate>'
+cat $CA_PATH
+echo '</ Certificate>'
+
+NODE_EXTRA_CA_CERTS=$CA_PATH \
   scripts/run-cypress-tests.js
