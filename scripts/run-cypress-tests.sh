@@ -32,11 +32,11 @@ curl http://nextjs-grpc.utkusarioglu.com/login | head -n1 -c80
 echo '</Curl, login>'
 
 echo '<Curl with ca, homepage>'
-curl --cacert $CA_PATH https://nextjs-grpc.utkusarioglu.com | head -n1 -c80
+curl https://nextjs-grpc.utkusarioglu.com | head -n1 -c80
 echo '</Curl with ca, homepage>'
 
 echo '<Curl with ca, login>'
-curl --cacert $CA_PATH https://nextjs-grpc.utkusarioglu.com/login | head -n1 -c80
+curl https://nextjs-grpc.utkusarioglu.com/login | head -n1 -c80
 echo '</Curl with ca, login>'
 
 NODE_EXTRA_CA_CERTS=$CA_PATH scripts/run-cypress-tests.js
