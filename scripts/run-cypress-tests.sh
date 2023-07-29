@@ -24,19 +24,19 @@ cat $CA_PATH
 echo '</ Certificate>'
 
 echo '<Curl, homepage>'
-curl http://nextjs-grpc.utkusarioglu.com | head -n1
+curl http://nextjs-grpc.utkusarioglu.com | head -n1 -c80
 echo '</Curl, homepage>'
 
 echo '<Curl, login>'
-curl http://nextjs-grpc.utkusarioglu.com/login | head -n1
+curl http://nextjs-grpc.utkusarioglu.com/login | head -n1 -c80
 echo '</Curl, login>'
 
 echo '<Curl with ca, homepage>'
-curl --cacert $CA_PATH https://nextjs-grpc.utkusarioglu.com | head -n1
+curl --cacert $CA_PATH https://nextjs-grpc.utkusarioglu.com | head -n1 -c80
 echo '</Curl with ca, homepage>'
 
 echo '<Curl with ca, login>'
-curl --cacert $CA_PATH https://nextjs-grpc.utkusarioglu.com/login | head -n1
+curl --cacert $CA_PATH https://nextjs-grpc.utkusarioglu.com/login | head -n1 -c80
 echo '</Curl with ca, login>'
 
 NODE_EXTRA_CA_CERTS=$CA_PATH scripts/run-cypress-tests.js
