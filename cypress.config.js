@@ -1,7 +1,6 @@
 require("dotenv").config();
 const { defineConfig } = require("cypress");
 
-// const baseUrl = `https://${process.env.BASE_URL}`;
 const baseUrl = `https://${process.env.BASE_URL}`;
 
 module.exports = defineConfig({
