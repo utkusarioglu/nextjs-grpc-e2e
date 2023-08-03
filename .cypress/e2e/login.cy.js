@@ -29,7 +29,7 @@ Cypress.env().viewportSizes.forEach((viewportSize) => {
           cy.get("#password").click().type(keyword);
           cy.get("button[type=submit]").click();
           cy.contains(message);
-          cy.wait(2e3);
+          cy.wait(10e3);
           cy.screenshot(`after "${keyword}" submit`);
         });
       });

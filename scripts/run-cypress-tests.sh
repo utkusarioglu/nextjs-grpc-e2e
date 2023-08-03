@@ -1,11 +1,16 @@
 #!/bin/bash
 
-LOGS_PATH=".cypress/artifacts/logs"
-YARN_LOGS_PATH=$LOGS_PATH/yarn.log
+#
+# scripts/prep-cypress-tests.sh needs to be run before this script
+#
+CA_PATH=/utkusarioglu-com/projects/nextjs-grpc/e2e/.certs/intermediate/ca.crt
 
-mkdir -p $LOGS_PATH
-touch $YARN_LOGS_PATH
+echo '<Certificate>'
+cat $CA_PATH
+echo '</ Certificate>'
 
-yarn --frozen-lockfile
+NODE_EXTRA_CA_CERTS=$CA_PATH scripts/run-cypress-tests.js
 
-scripts/run-cypress-tests.js
+echo '<artifacts folder>'
+ls -al /utkusarioglu-com/projects/nextjs-grpc/e2e/cypress/artifacts
+echo '</ artifacts folder>'

@@ -2,7 +2,8 @@
 
 # WORKDIR=/utkusarioglu-com/projects/nextjs-grpc/e2e
 WORKDIR=/cypress-workspace
-CYPRESS_VERSION=12.13.0
+# CYPRESS_VERSION=12.13.0
+CYPRESS_VERSION=12.17.2
 
 if [ -z "$CI" ]; then
   GITHUB_WORKSPACE=$(pwd)/..
@@ -18,14 +19,12 @@ fi
 repo_dir="$GITHUB_WORKSPACE/e2e"
 source "$repo_dir/.env"
 
-if [ ! -f $(/var/run/docker.sock) ];
+if [ "$(id -u)" != "0" ] && [ ! -f $(/var/run/docker.sock) ];
 then
   echo "This script requires docker to be available in the environment"
   echo "If you are inside the devcontainer, try running the script from the host."
   exit 1
 fi
-
-echo "Using cypress/included:$CYPRESS_VERSION…"
 
 docker run \
   --rm \
@@ -46,4 +45,6 @@ docker run \
   --name nextjs-grpc-e2e \
   --add-host "$BASE_URL:127.0.0.1" \
   --entrypoint scripts/run-cypress-tests.sh \
-  cypress/included:$CYPRESS_VERSION \
+  cypress/included:$CYPRESS_VERSION
+
+  # --privileged \
